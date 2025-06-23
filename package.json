@@ -1,0 +1,52 @@
+{
+  "name": "@retable/mcp-server",
+  "version": "0.1.0",
+  "description": "Retable Model Context Protocol Server",
+  "main": "index.js",
+  "author": "Retable.io",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/retable-io/mcp-server.git"
+  },
+  "homepage": "https://github.com/retable-io/mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/retable-io/mcp-server/issues"
+  },
+  "keywords": [
+    "retable",
+    "mcp",
+    "model context protocol",
+    "ai"
+  ],
+  "bin": {
+    "mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "lint": "eslint --ext .ts src",
+    "lint:fix": "eslint --ext .ts --fix src",
+    "inspect": "npx @modelcontextprotocol/inspector -e RETABLE_API_KEY=$RETABLE_API_KEY node dist/index.js",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "retablejs": "^1.0.0",
+    "zod": "^3.25.62"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.14.1",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^9.27.0",
+    "eslint-plugin-import": "^2.31.0",
+    "globals": "^16.1.0",
+    "typescript": "^5.8.3"
+  }
+}
