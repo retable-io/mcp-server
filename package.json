@@ -1,8 +1,8 @@
 {
-  "name": "@retable/mcp-server",
+  "name": "@retable.io/mcp-server",
   "version": "0.1.0",
   "description": "Retable Model Context Protocol Server",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Retable.io",
   "license": "MIT",
   "repository": {
@@ -14,8 +14,10 @@
     "url": "https://github.com/retable-io/mcp-server/issues"
   },
   "keywords": [
+    "retable.io",
     "retable",
     "mcp",
+    "mcp server",
     "model context protocol",
     "ai"
   ],
