@@ -1,6 +1,6 @@
 {
-  "name": "@retable.io/mcp-server",
-  "version": "0.1.0",
+  "name": "retable-mcp-server",
+  "version": "0.1.1",
   "description": "Retable Model Context Protocol Server",
   "main": "dist/index.js",
   "author": "Retable.io",

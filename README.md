@@ -1,61 +1,31 @@
 # Retable MCP Server: AI-Assisted Data Management
 
-Connect AI agents like **Claude Desktop** to **Retable**. With this MCP server, AI agents can help manage your Retable data seamlessly.
+Connect AI agents like Claude, Cursor and Windsurf to Retable. With this MCP server, AI agents can help manage your Retable data seamlessly.
 
-## Table of Contents
+## Usage
 
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-  - [Local Installation](#local-installation-for-claude-desktop)
-  - [Configuration for Claude Desktop](#configuration)
-- [Development](#development)
+To use the MCP server, you must first configure your client (e.g., Claude, Cursor and Windsurf). Most clients provide an option to add a new MCP server.
 
-## Prerequisites
+### Cursor one-click installation
 
-Before getting started, make sure you have the following:
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=retable&config=eyJjb21tYW5kIjoibnB4IC15IHJldGFibGUtbWNwLXNlcnZlciIsImVudiI6eyJSRVRBQkxFX0FQSV9LRVkiOiIifX0%3D)
 
-- [Node.js](https://nodejs.org/) (version **20.0.0 or later** required)
-- A [Retable](https://retable.io) account
-- A **Retable API Key**
-  > You can generate your API key from the **API** tab.
+### Usage for Claude Desktop
 
-## Installation
-
-### Local Installation
-
-```bash
-npm install
-npm run build
-```
-
-### Configuration for Claude Desktop
-
-To use the MCP server, you must first configure your client (e.g., Claude Desktop). Most clients provide an option to add a new MCP server.
-
-You’ll need to edit the **claude_desktop_config.json** file, which can be found in Claude Desktop via:
+For Claude Desktop, You’ll need to edit the `claude_desktop_config.json` file, which can be found via:
 
 ```bash
 Settings → Developer → Edit Config
 ```
 
-![Claude Desktop Config](assets/claude_desktop_config.png)
-
-Below is a sample configuration for Claude Desktop to run the Retable MCP server.
-
-⚠️ Make sure to set your **RETABLE_API_KEY** as an environment variable in your system.
-
-⚠️ Replace **"path\\to\\dist\\index.js"** with the correct path format for your operating system.
-
-> - On Windows, use double backslashes (\\) as shown.
-> - On macOS/Linux, use forward slashes (/) instead
-> - Make sure the dist/index.js file exists after running npm run build.
+Add the following configuration to the "mcpServers" section of your `claude_desktop_config.json`:
 
 ```jsonc
 {
   "mcpServers": {
     "retable": {
-      "command": "node",
-      "args": ["path\\to\\mcp-server\\dist\\index.js"],
+      "command": "npx",
+      "args": ["-y", "retable-mcp-server"],
       "env": {
         "RETABLE_API_KEY": "$RETABLE_API_KEY"
       }
@@ -64,12 +34,17 @@ Below is a sample configuration for Claude Desktop to run the Retable MCP server
 }
 ```
 
+⚠️ Replace `$RETABLE_API_KEY` with your [Retable API Key](https://docs.retable.io/retable-user-guide/retable-api/api#how-to-find-my-retable-api-key).
+
 After the configuration, restart Claude Desktop and you will see the active Retable tools
 
-| ![Tools](assets/tools.png) | ![Retable Tools](assets/retable_tools.png) |
-| -------------------------- | ------------------------------------------ |
+## Prerequisites & Development
 
-## Development
+Before getting started, make sure you have the following:
+
+- [Node.js](https://nodejs.org/) (version **20.0.0 or later**)
+- A [Retable](https://retable.io) account
+- A [Retable API Key](https://docs.retable.io/retable-user-guide/retable-api/api#how-to-find-my-retable-api-key)
 
 The project includes several npm scripts to help with development:
 
@@ -90,4 +65,4 @@ npm run lint:fix
 npm run inspect
 ```
 
-⚠️ To run `npm run inspect`, replace RETABLE_API_KEY to the inspect script:
+⚠️ To run `npm run inspect`, replace RETABLE_API_KEY to the inspect script.
